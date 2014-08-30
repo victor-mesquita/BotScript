@@ -1,0 +1,6 @@
+MenuObj = CreateMenu(w, h, color_alpha_transp)
+CreateButton(MenuObj, x, y, TEXT, call_function, color)
+CreateText((MenuObj, x, y, text, color)
+CreateCheckBox(MenuObj, x, y, text, call_function, color)
+DrawMenu((MenuObj, x, y)
+LUA_ARGB(R, B, G, ALPHA)

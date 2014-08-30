@@ -1,0 +1,58 @@
+MenuObj = CreateMenu(w, h, color_alpha_transp)
+CreateButton(MenuObj, x, y, TEXT, "CallFunction")
+CreateText(MenuObj, x, y, TEXT)
+CreateCheckBox(MenuObj, TEXT, x, y, "CallFunction")
+CloseMenu(MenuObj)
+OpenMenu(MenuObj)
+
+DrawMenu(MenuObj, x, y)
+MenuEvent(MenuObj)
+
+
+InitThread(MILISEC_TIME_THREAD, "CallFunction")
+
+#define MAX_OBJECT_MENU 255
+
+struct MenuObject
+{
+	int x;
+	int y;
+	int w;
+	int h;
+	int color;
+	bool active_type;
+	DrawText draw_text[MAX_OBJECT_MENU];
+	DrawCheckBox draw_checkbox[MAX_OBJECT_MENU]
+	
+}
+
+struct DrawText
+{
+	char text[127];
+	int x;
+	int y;
+}
+
+struct DrawCheckBox
+{
+	char text[127];
+	int x;
+	int y;
+}
+
+struct DrawButton
+{
+ char text[127];
+ int x;
+ int y;
+ int w;
+ int h;
+}
+
+D3DCOLOR_ARGB(255, 0, 255, 200)
+
+VOID Preencher(INT x, INT y, INT w, INT h, D3DCOLOR color, LPDIRECT3DDEVICE9 pDevice)
+{
+	D3DRECT rec = {x, y, x + w, y + h};
+	pDevice->Clear(1, &rec, D3DCLEAR_TARGET, color, 0, 0);
+}
